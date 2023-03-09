@@ -4,6 +4,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 
 const routes: Routes =[
   {
@@ -16,6 +17,13 @@ const routes: Routes =[
     children: [{
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
+    }]
+  }, {
+    path: '',
+    component: AuthLayoutComponent,
+    children: [{
+      path: '',
+      loadChildren: () => import('./layouts/auth/auth-layout.module').then(m => m.AuthLayoutModule)
     }]
   }
 ];
